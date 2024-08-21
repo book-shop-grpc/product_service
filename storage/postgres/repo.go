@@ -19,5 +19,5 @@ type BookRepoI interface {
 	GetBook(ctx context.Context, bookID string) (*product_service.Book, error)
 	UpdateBook(ctx context.Context, book *product_service.Book) (*product_service.Book, error)
 	DeleteBook(ctx context.Context, bookID string) error
-	ListBooks(ctx context.Context) (*product_service.BookListResponse, error)
+	ListBooks(ctx context.Context, req product_service.GetList) (*product_service.BookListResponse, error)
 }

@@ -3,21 +3,24 @@ package service
 import (
 	"context"
 
-	"github.com/book-shop-grpc/product_service/genproto/product_service"
+	//	"github.com/book-shop-grpc/product_service/genproto/product_service"
+	"product_service/genproto/product_service"
 	"github.com/book-shop-grpc/product_service/storage"
 )
 
 type ProductService struct {
-	storage storage.StorageI
+	Storage storage.StorageI
+	// product_service.UnimplementedProductServiceServer
 	product_service.UnimplementedProductServiceServer
 }
 
 func NewProductService(storage storage.StorageI) *ProductService {
-	return &ProductService{storage: storage}
+	return &ProductService{Storage: storage}
 }
 
 // Author CRUD operations
 func (s *ProductService) CreateAuthor(ctx context.Context, req *product_service.CreateAuthorRequest) (*product_service.Author, error) {
+
 	return nil, nil
 }
 
@@ -36,7 +39,6 @@ func (s *ProductService) DeleteAuthor(ctx context.Context, req *product_service.
 func (s *ProductService) ListAuthors(ctx context.Context, req *product_service.Empty) (*product_service.AuthorListResponse, error) {
 	return nil, nil
 }
-
 
 // Book CRUD operations
 func (s *ProductService) CreateBook(ctx context.Context, req *product_service.CreateBookRequest) (*product_service.Book, error) {
